@@ -5,7 +5,7 @@ import java.math.BigInteger;
 /**
  * A simple implementation of arbitrary-precision Fractions.
  *
- * @author Samuel A. Rebelsky
+ * @author Samuel A. Rebelsky 
  * @author YOUR NAME HERE
  */
 public class BigFraction {
@@ -86,6 +86,8 @@ public class BigFraction {
    *   The fraction in string form
    */
   public BigFraction(String str) {
+    
+
     this.num = DEFAULT_NUMERATOR;
     this.denom = DEFAULT_DENOMINATOR;
   } // BigFraction
@@ -125,6 +127,26 @@ public class BigFraction {
     // Return the computed value
     return new BigFraction(resultNumerator, resultDenominator);
   } // add(BigFraction)
+
+  public BigFraction multiply(BigFraction mult) {
+    BigInteger resultNumerator;
+    BigInteger resultDenominator;
+
+    resultNumerator = this.num.multiply(mult.num);
+    resultDenominator = this.denom.multiply(mult.denom);
+  
+    return new BigFraction(resultNumerator, resultDenominator);
+  }
+
+  public BigFraction fractional() {
+    BigInteger resultNumerator;
+    BigInteger resultDenominator;
+
+    resultDenominator = this.denom;
+    resultNumerator = this.num.mod(this.denom);
+
+    return new BigFraction(resultNumerator, resultDenominator);
+  }
 
   /**
    * Get the denominator of this fraction.

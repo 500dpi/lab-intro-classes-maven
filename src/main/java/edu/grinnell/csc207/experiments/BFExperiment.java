@@ -23,12 +23,14 @@ public class BFExperiment {
   public static void main(String[] args) throws Exception {
     PrintWriter pen = new PrintWriter(System.out, true);
     BigFraction f1;
-    f1 = new BigFraction(3, 10);
+    f1 = new BigFraction(15, 10);
     BigFraction f2;
     f2 = new BigFraction(2, 5);
     pen.println("First fraction: " + f1);
     pen.println("Second fraction: " + f2);
     pen.println("Sum: " + (f1.add(f2)));
+    pen.println("f1 * f2 = " + f1.multiply(f2));
+    pen.println("fractional of f1: " + f1.fractional());
     pen.close();
   } // main(String[])
 } // class BFExperiment
